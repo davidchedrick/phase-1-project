@@ -1,3 +1,64 @@
-h1 {
-    color: crimson;
+
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Rock Salt', cursive;
+    margin: 0;
+    background: linear-gradient(52deg, rgb(21, 2, 22), rgba(111, 8, 134, 0.801), rgba(99, 12, 99, 0.938), rgba(148, 5, 143, 0.774), rgba(219, 15, 212, 0.658), #c716c1a2, rgba(230, 7, 148, 0.925));
+    min-height: 100vh;
+
+}
+
+.title {
+    color: rgb(26, 11, 241);
+    text-shadow: 1px 1px 1px #000000, 6px 8px 10px #ee0c31d0, 11px 12px 6px #750825;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2.5em;
+    margin: 1px;
+}
+.subtitle {
+    line-height: 0.1;
+    color: rgb(26, 11, 241);
+    text-shadow: 1px 1px 1px #000000, 6px 8px 10px #ee0c31d0, 11px 12px 6px #750825;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.8em;
+    margin: 15px;
+}
+
+.statsContainer {
+    color: rgb(56, 21, 49);
+    text-decoration: underline;
+    text-shadow:  6px 8px 10px #ee0c31d0, 11px 12px 6px #750825;
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.cardBox {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    align-items: center;
+    justify-content: center
+
+} 
+
+.card {
+    background-color: black;
+    height: 190px;
+    width: 130px;
+    margin: 8px;
+   
+   
+   
+ 
+    
+    
 }
