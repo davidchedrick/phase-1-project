@@ -177,7 +177,11 @@ body {
   }
 
  
-  
+  .heart{
+    line-height: 0.7;
+    font-size:1.7em;
+    color:red;
+  }
 
   
   .screenTextSmall {
