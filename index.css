@@ -4,12 +4,33 @@
     
 }
 
+
+
 body {
     font-family: 'Rock Salt', cursive;
-    margin: 0;
     background: linear-gradient(52deg, rgb(21, 2, 22), rgba(111, 8, 134, 0.801), rgba(99, 12, 99, 0.938), rgba(148, 5, 143, 0.774), rgba(219, 15, 212, 0.658), #c716c1a2, rgba(230, 7, 148, 0.925));
     min-height: 100vh;
 
+}
+.topDiv {
+    padding: 0.5em;
+    margin-bottom: 2em;
+}
+
+.container {
+    display: flex;
+}
+
+.leftDiv {
+    padding: 2em;
+    margin-right: 5em;
+}
+
+.rightDiv {
+    padding: 3em;
+    display: flex;
+    text-align: center;
+    justify-content:right
 }
 
 .title {
@@ -31,29 +52,82 @@ body {
 }
 
 .statsContainer {
-    color: rgb(56, 21, 49);
+    color: rgb(32, 12, 28);
     text-decoration: underline;
     text-shadow:  6px 8px 10px #ee0c31d0, 11px 12px 6px #750825;
-    text-align: center;
-    font-weight: normal;
-    font-size: 1.5em;
     display: flex;
-    justify-content: space-around;
+    text-align: center;
+    font-size: 1em;
+    flex-direction: column;
+    margin-top: 2em;
    
 }
 
 .cardBox {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    align-items: center;
-    justify-content: center
-
+   display: grid;
+   grid-template-columns: repeat(4, auto);
+   padding-left: 10em;
+   flex: 1;
+   justify-content: center;
+    perspective: 500px;
 } 
 
+
 .card {
+    position: relative;
     height: 170px;
     width: 170px;
     margin: 8px;
+}
+
+.face {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    transition: transform 500ms ease-in-out;
+    backface-visibility: hidden;
+}
+
+.card.visible .cardBack {
+    transform: rotateY(-180deg); 
+}
+  
+.card.visible .cardFront {
+    transform: rotateY(0); 
+}
+  
+.card.matched .cardFront .cat {
+    animation: dance 1s linear infinite 500ms;
+}
+
+.card-back {
+    transform: rotateY(0); 
+}
+
+.card-back:hover  {
+    transform: translateY(0);
+}
+
+.cat {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out;
+    border: 3px;
+    border-style: double;
+    border-color: rgb(255, 3, 171);
+ 
     
 }
 
@@ -61,13 +135,90 @@ body {
     height: 100%;
     width: 100%;
     border-radius: 12px;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out;
     border: 3px;
     border-style: double;
-    border-color: rgba(209, 8, 142, 0.986);
-    transition: width 100ms ease-in-out, height 100ms ease-in-out;
+    border-color: rgb(255, 3, 171);
+    transform: rotateY(0); 
 }
 
 .eye:hover {
     width: 175px;
     height: 175px;
 }
+
+.cat:hover {
+    width: 175px;
+    height: 175px;
+}
+
+.cardFront {
+    transform: rotateY(180deg);
+}
+  
+
+
+.screenText {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(26, 11, 241);
+    text-shadow: 1px 1px 1px #000000, 6px 8px 10px #ee0c31d0, 11px 12px 6px #750825;
+    font-family: 'Rock Salt', cursive;
+    transition: background-color 500ms, font-size 500ms;
+    background: linear-gradient(52deg, rgb(21, 2, 22), rgba(111, 8, 134, 0.801), rgba(99, 12, 99, 0.938), rgba(148, 5, 143, 0.774), rgba(219, 15, 212, 0.658), #c716c1a2, rgba(230, 7, 148, 0.925));
+  }
+
+ 
+  
+
+  
+  .screenTextSmall {
+    font-size: .7em;
+  }
+  
+  .screenText.visible {
+    display: flex;
+    animation: overlay-grow 500ms forwards;
+  }
+  
+  @keyframes dance {
+    0%, 100% {
+      transform: rotate(0)
+    }
+    25% {
+      transform: rotate(-30deg)
+    }
+    75% {
+      transform: rotate(30deg)
+    }
+  }
+  
+  @keyframes overlay-grow {
+    from {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 0;
+    }
+    to {
+      background-color: rgba(0, 0, 0, .5);
+      font-size: 5em;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .wrap {
+      grid-template-columns: repeat(2, auto)
+    }
+  
+    .statsContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
