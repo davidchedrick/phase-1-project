@@ -5,13 +5,20 @@ class matchCats {
         this.timeLeft = time;
         this.timer = document.querySelector('#time');
         this.score = document.querySelector('#result');
+     
     }
     playGame() {
         this.cardSelected = null;
         this.totalClicks = 0;
-        this.timeLeft = this.time;
+        this.timer = this.timeLeft;
         this.matchedCards = [];
         this.stop = true;
+       
+    }
+    mixCards(){
+        for(let i = this.cardsArray.length - 1; i > 0; i--){
+            let mixIndex = Math.floor(Math)
+        }
     }
     flipCard(card) {
         if(this.canFlipCard(card)) {
@@ -35,7 +42,7 @@ function startGame() {
 
     screenText.addEventListener('click', () => {
         screenText.classList.remove('visible');
-        game.playGame
+        game.playGame()
     });
 
     cards.forEach(card => {
