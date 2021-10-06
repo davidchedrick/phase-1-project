@@ -2,7 +2,7 @@ let screenText = document.querySelector('.screenText');
 let cards = Array.from(document.querySelectorAll('.card'))
 let cardsArray = cards;
 let timeCount = null;
-let timeLeft = 10;
+let timeLeft = 60;
 let timer = document.querySelector('#time');
 let score = document.querySelector('#result');
 let cardSelected = null;
@@ -13,6 +13,7 @@ let busy = true;
 document.addEventListener('DomContentLoaded', startGame())
 
 function startGame() {
+    
 
         screenText.addEventListener('click', () => {
         screenText.classList.remove('visible');
@@ -131,5 +132,28 @@ function winGame() {
 
 }
    
+    
+  
 
 
+function fetchCats() {
+    fetch('https://catfact.ninja/fact')
+    .then(response => response.json())
+    .then(cats => renderCats(cats))
+    .catch(error => alert(error))
+}
+fetchCats()
+  
+
+
+
+function renderCats(cat) {
+    console.log(cat.fact)
+    const main = document.querySelector('#facts');
+    const h2 = document.createElement('h2');
+    h2.innerHTML = cat.fact;
+    main.appendChild(h2);
+    
+}
+
+ 
