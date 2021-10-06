@@ -70,8 +70,7 @@ function startCountDown() {
 
 function flipCard(card) {
     if(canFlipCard(card)) {
-        totalClicks++;
-        score.innerText = totalClicks;
+       
         card.classList.add('visible');
 
         if(cardSelected){
@@ -96,6 +95,8 @@ function cardMatch(card1, card2){
     matchedCards.push(card2);
     card1.classList.add('matched');
     card2.classList.add('matched');
+    totalClicks++;
+    score.innerText = totalClicks;
     if(matchedCards.length === cardsArray.length) {
         winGame();
     }
@@ -120,19 +121,25 @@ function canFlipCard(card) {
 
 function gameOver() {
     clearInterval(countDown);
-    document.querySelector('#gameOver').classList.add('visible');
-
+    const gameOver = document.querySelector('#gameOver')
+    gameOver.classList.add('visible');
+    gameOver.addEventListener('click', reload)
 
     
 
 }
 function winGame() {
     clearInterval(countDown);
-    document.querySelector('#win').classList.add('visible');
+    const win = document.querySelector('#win')
+    win.classList.add('visible');
+    win.addEventListener('click', reload)
 
 }
    
-    
+function reload(){
+    location.reload();
+ }   
+   
   
 
 
