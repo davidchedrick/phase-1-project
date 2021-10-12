@@ -5,19 +5,19 @@ body {
 }
 
 .container {
-    display: flex;
+  display: flex;
 }
 
 .leftDiv {
-    padding: 2em;
-    margin-right: 5em;
+  padding: 2em;
+  margin-right: 5em;
 }
 
 .rightDiv {
-    padding: 3em;
-    display: flex;
-    text-align: center;
-    justify-content:right
+  padding: 3em;
+  display: flex;
+  text-align: center;
+  justify-content:right
 }
 
 .title {
@@ -83,7 +83,6 @@ body {
   perspective: 500px;
 } 
 
-
 .card {
   position: relative;
   height: 170px;
@@ -116,14 +115,6 @@ body {
   
 .card.matched .cardFront .cat {
   animation: grow 1.5s ease-in-out infinite 1000ms;
-}
-
-.card-back {
-  transform: rotateY(0); 
-}
-
-.card-back:hover  {
-  transform: translateY(0);
 }
 
 .cat {
@@ -183,8 +174,7 @@ body {
   background: linear-gradient(52deg, rgb(21, 2, 22), rgba(111, 8, 134, 0.801), rgba(99, 12, 99, 0.938), rgba(148, 5, 143, 0.774), rgba(219, 15, 212, 0.658), #c716c1a2, rgba(230, 7, 148, 0.925));
 }
 
- 
-.heart{
+.heart {
   line-height: 0.7;
   font-size:1.7em;
   color:red;
